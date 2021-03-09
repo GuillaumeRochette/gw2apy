@@ -1,6 +1,8 @@
 # Guild Wars 2 API Python Wrapper
 
-|Build Status|
+[![Build Status](https://www.travis-ci.com/GuillaumeRochette/gw2apy.svg?branch=master)](https://www.travis-ci.com/GuillaumeRochette/gw2apy)
+[![Latest Version](https://img.shields.io/pypi/v/gw2apy.svg)](https://pypi.org/project/gw2apy/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/gw2apy.svg)](https://pypi.org/project/gw2apy/)
 
 ## Installation
 - Pre-requisites: Python >= 3.6

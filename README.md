@@ -45,3 +45,7 @@ items = items_endpoint.ids(ids=[28445, 12452])
 all_items = items_endpoint.all()
 ```
 
+## Credits
+This package is inspired from:
+- [JuxhinDB/gw2-api-interface](https://github.com/JuxhinDB/gw2-api-interface)
+- [queicherius/gw2api-client](https://github.com/queicherius/gw2api-client)

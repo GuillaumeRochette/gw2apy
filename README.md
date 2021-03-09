@@ -26,8 +26,6 @@ client = Client(api_key="YOUR_API_KEY")
 from gw2apy.endpoints import Items
 
 items_endpoint = Items(client=client)
-
-items_endpoint.id(id=28445)
 ```
 
 - Request data from the endpoint:

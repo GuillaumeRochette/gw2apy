@@ -34,12 +34,12 @@ class AbstractEndpoint(object):
     def ids(self, ids):
         assert self.has_ids, f"{self.__class__} does not have ids."
         responses = self._ids(ids=ids)
-        return flatten([response.data for response in responses])
+        return _flatten([response.data for response in responses])
 
     def pages(self, pages, page_size=None):
         assert self.has_pages, f"{self.__class__} does not have pages."
         responses = self._pages(pages=pages, page_size=page_size)
-        return flatten([response.data for response in responses])
+        return _flatten([response.data for response in responses])
 
     def all(self):
         c = self.has_ids or self.has_pages
@@ -49,10 +49,10 @@ class AbstractEndpoint(object):
             return response.data
         elif self.has_pages:
             responses = self._all_by_pages()
-            return flatten([response.data for response in responses])
+            return _flatten([response.data for response in responses])
         else:
             responses = self._all_by_ids()
-            return flatten([response.data for response in responses])
+            return _flatten([response.data for response in responses])
 
     def get(self, **kwargs):
         path = kwargs.get("path")
@@ -118,7 +118,7 @@ class AbstractEndpoint(object):
         return response
 
     def _ids(self, ids):
-        chunked_ids = [c for c in chunk(ids, self.max_page_size)]
+        chunked_ids = [c for c in _chunk(ids, self.max_page_size)]
         suffixes = [f"?ids={','.join(map(str, c))}" for c in chunked_ids]
         urls = [self._endpoint_base_url() + suffix for suffix in suffixes]
         responses = self.client.gets(urls=urls)
@@ -162,10 +162,10 @@ class AuthenticatedAbstractEndpoint(AbstractEndpoint):
         super(AuthenticatedAbstractEndpoint, self).__init__(client=client)
 
 
-def chunk(l, n):
+def _chunk(l, n):
     for i in range(0, len(l), n):
         yield l[i : i + n]
 
 
-def flatten(l):
+def _flatten(l):
     return list(chain(*l))

@@ -10,7 +10,7 @@ with (root / "requirements.txt").open() as file:
 
 setup(
     name="gw2apy",
-    version="0.0.1",
+    version="0.0.2",
     description="Guild Wars 2 API Python Wrapper",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -28,10 +28,6 @@ setup(
     packages=find_packages(),
     python_requires=">=3.6",
     install_requires=install_requires,
-    extras_require={
-        "dev": ["check-manifest"],
-        "test": ["coverage"],
-    },
     project_urls={
         "Bug Reports": "https://github.com/GuillaumeRochette/gw2apy/issues",
         "Source": "https://github.com/GuillaumeRochette/gw2apy/",

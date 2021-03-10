@@ -1,1 +1,2 @@
 requests-futures>=1.0.0
+ratelimit>=2.2.1
